@@ -59,7 +59,7 @@ namespace OrcaHello.Web.Shared.Services
 
             if (ValidationService.OKWithNoContent(responseMessage))
             {
-                return default(TResult);
+                return default(TResult)!;
             }
 
             return await Deserialize<TResult>(responseMessage);
@@ -129,7 +129,7 @@ namespace OrcaHello.Web.Shared.Services
         {
             var responseString = await httpResponseMessage.Content.ReadAsStringAsync();
             var returnObject = System.Text.Json.JsonSerializer.Deserialize<T>(responseString, _jsonSerializeOptions);
-            return returnObject;
+            return returnObject!;
         }
 
     }

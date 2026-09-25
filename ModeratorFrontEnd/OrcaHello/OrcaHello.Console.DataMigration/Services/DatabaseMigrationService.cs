@@ -126,9 +126,9 @@ namespace OrcaHello.Console.DataMigration.Services
                     // We are turning tags into a list in the schema so it can
                     // be parsed and indexed better
 
-                    if (!string.IsNullOrWhiteSpace(item?.tags))
+                    if (!string.IsNullOrWhiteSpace(item.tags))
                     {
-                        newItem.tags = item?.tags?.Split(";")?.ToList();
+                        newItem.tags = item.tags.Split(";").ToList();
                     }
 
                     // We are creating a location name higher up to make it easier to
@@ -137,7 +137,7 @@ namespace OrcaHello.Console.DataMigration.Services
                     // We are also renaming "Haro Strait" to "Orcasound Lab", but leaving the
                     // node_name unchanged
 
-                    var name = item?.location?.name;
+                    var name = item.location.name;
 
                     if (name == "Haro Strait")
                     {
