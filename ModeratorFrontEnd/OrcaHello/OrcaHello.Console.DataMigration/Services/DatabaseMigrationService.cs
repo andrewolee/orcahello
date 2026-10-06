@@ -137,15 +137,18 @@ namespace OrcaHello.Console.DataMigration.Services
                     // We are also renaming "Haro Strait" to "Orcasound Lab", but leaving the
                     // node_name unchanged
 
-                    var name = item.location.name;
-
-                    if (name == "Haro Strait")
+                    if (item.location != null)
                     {
-                        name = "Orcasound Lab";
-                    }
+                        var name = item.location.name;
 
-                    newItem.locationName = name;
-                    newItem.location.name = name;
+                        if (name == "Haro Strait")
+                        {
+                            name = "Orcasound Lab";
+                        }
+
+                        newItem.locationName = name;
+                        item.location.name = name;
+                    }
 
                     // We are moving to a single field to indicate the state of the
                     // item (Unreviewed, Positive, Negative, Unknown)

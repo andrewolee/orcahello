@@ -9,7 +9,7 @@
         public string imageUri { get; set; } = string.Empty;
         public DateTime timestamp { get; set; }
         public decimal whaleFoundConfidence { get; set; }
-        public Location location { get; set; } = new Location();
+        public Location? location { get; set; }
         public List<Prediction> predictions { get; set; } = new List<Prediction>();
         public string comments { get; set; } = string.Empty;
         public string dateModerated { get; set; } = string.Empty;
