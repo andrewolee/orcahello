@@ -139,15 +139,12 @@ namespace OrcaHello.Console.DataMigration.Services
 
                     if (item.location != null)
                     {
-                        var name = item.location.name;
-
-                        if (name == "Haro Strait")
+                        if (item.location.name == "Haro Strait")
                         {
-                            name = "Orcasound Lab";
+                            item.location.name = "Orcasound Lab";
                         }
 
-                        newItem.locationName = name;
-                        item.location.name = name;
+                        newItem.locationName = item.location.name;
                     }
 
                     // We are moving to a single field to indicate the state of the
