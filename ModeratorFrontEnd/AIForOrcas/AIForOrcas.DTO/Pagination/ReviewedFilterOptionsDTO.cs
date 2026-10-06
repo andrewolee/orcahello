@@ -18,7 +18,7 @@ namespace AIForOrcas.DTO
         public string SortBy { get; set; }
 
         /// <summary>
-        /// The relative timeframe to filter results by (e.g. "24h"), or "range" to use <see cref="DateFrom"/>/<see cref="DateTo"/>.
+        /// The relative timeframe to filter results by (e.g., "24h"), or "range" to use <see cref="DateFrom"/>/<see cref="DateTo"/>.
         /// </summary>
         public string Timeframe { get; set; }
 
