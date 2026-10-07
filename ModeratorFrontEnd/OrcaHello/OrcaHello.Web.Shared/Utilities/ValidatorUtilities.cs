@@ -13,6 +13,7 @@
         public static bool IsInvalid(object input) => input == null;
         public static bool IsInvalid(DateTime input) => input == default(DateTime);
         public static bool IsInvalidGuidString(string input) => !Guid.TryParse(input, out Guid dummy);
+        // Falls back to the outer message if there's no inner exception.
         public static string GetInnerMessage(Exception exception) => exception.InnerException?.Message ?? exception.Message;
         public static string GetMessage(Exception exception) => exception.Message;
 
