@@ -99,6 +99,7 @@ namespace OrcaHello.Console.DataMigration.Services
             var queryIterator = sourceContainer.GetItemQueryIterator<Metadata>(query);
 
             int recordCount = 0;
+            int migratedCount = 0;
 
             while (queryIterator.HasMoreResults)
             {
@@ -123,10 +124,11 @@ namespace OrcaHello.Console.DataMigration.Services
 
                     // Insert data into local container
                     await targetContainer.CreateItemAsync(newItem, partitionKey);
+                    migratedCount++;
                 }
             }
 
-            System.Console.WriteLine($"Finished migrating {recordCount} records to {_config[AppSettings.TargetContainerName]} in emulator.");
+            System.Console.WriteLine($"Finished migrating {migratedCount} of {recordCount} records to {_config[AppSettings.TargetContainerName]} in emulator.");
             PressAnyKey();
         }
 
